@@ -12,6 +12,14 @@ from kombu import Exchange, Queue
 
 from django.core.exceptions import ImproperlyConfigured
 
+# Start hardcode
+import django
+
+from django.utils.encoding import smart_str
+
+django.utils.encoding.smart_text = smart_str
+# End hardcode
+
 BASE_DIR = Path(Path.cwd())
 
 # JSON-based secrets module
@@ -67,7 +75,7 @@ INSTALLED_APPS = [
     'mptt',
     'sanitizer',
     'timezone_field',
-    'snowpenguin.django.recaptcha2',
+    'captcha',
 
     'core.apps.CoreConfig',
     'cinfo.apps.CinfoConfig',
